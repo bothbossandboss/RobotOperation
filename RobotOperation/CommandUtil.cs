@@ -1,5 +1,5 @@
 ﻿/**
- * KHR-3HVロボットの各関節の回転角を指定するクラス。
+ * 便利なメソッドを集めたクラス？
  * 城さんの作ったクラスをそのままコピー。
  */
 using System;
@@ -10,10 +10,11 @@ using System.Threading.Tasks;
 
 namespace RobotOperation {
     class CommandUtil {
+        //ServoManager.csのServoDataクラスに上限下限を自分で設定できるメソッドがあるので、使われてない？
         public static int servoAngleConvert(double angle) {
             //7500のとき0deg            
             int neutral = 7500;       
-            //±135deg =&gt;±4000 
+            //±135deg => ±4000 
             int servoAngle = neutral + (int)((angle / 135.0) * 4000);
 
             //サーボモーター最大角、最小角の設定

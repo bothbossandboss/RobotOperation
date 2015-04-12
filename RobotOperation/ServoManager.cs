@@ -81,17 +81,19 @@ namespace RobotOperation {
             lowerLimit = 3500;
         }
 
+        //目標角度を設定するメソッド
         public void setDest(double d) {
             changeFlag = (d != destAngle);
             destAngle = d;
         }
 
-        //初期値を考慮した角度指定？
+        //物理的角度とサーボ制御用数値の変換
         public int toServoAngle(double angle) {
             //7500のとき0deg            
             int neutral = 7500;
-            //±135deg =&gt;±4000 
-            int servoAngle = neutral + (int)((angle / 135.0) * 4000);
+            //±135deg => ±4000 
+            //トリムの値も考慮する。
+            int servoAngle = neutral + (int)((angle / 135.0) * 4000) + trim;
             Debug.WriteLine("servoangle : {0}", servoAngle);
             //サーボモーター最大角、最小角の設定
             //下限より小さいときは下限にする
@@ -118,6 +120,7 @@ namespace RobotOperation {
 
         public ServoManager() {
             servoDict = new Dictionary<ServoTag, ServoData>();
+            //ServoDataの第二引数はトリム値。
             servoDict.Add(ServoTag.WAIST, new ServoData(true, 0, 5500, 9500));
             servoDict.Add(ServoTag.LEFT_SHOULDER_PITCH, new ServoData(true, -1350));
             servoDict.Add(ServoTag.RIGHT_SHOULDER_PITCH, new ServoData(false, 900));
@@ -145,13 +148,59 @@ namespace RobotOperation {
         }
 
         /**
+         * Heart to Heart のサンプルモーションの微小歩行の数値をべた書き。
+         */
+        //Heart to Heart の数値を物理的角度に変換して入力する。
+        public void setPos13() {
+            double transN = 135.0 / 4000.0;
+            servoDict[ServoTag.LEFT_HIP_ROLL].setDest(150.0 * transN);
+            servoDict[ServoTag.RIGHT_HIP_ROLL].setDest(150.0 * transN);
+            servoDict[ServoTag.LEFT_HIP_PITCH].setDest(500.0 * transN);
+            servoDict[ServoTag.RIGHT_HIP_PITCH].setDest(-500.0 * transN);
+            servoDict[ServoTag.LEFT_KNEE].setDest(1000.0 * transN);
+            servoDict[ServoTag.RIGHT_KNEE].setDest(-1000.0 * transN);
+            servoDict[ServoTag.LEFT_ANKLE_PITCH].setDest(-650.0 * transN);
+            servoDict[ServoTag.RIGHT_ANKLE_PITCH].setDest(650.0 * transN);
+            servoDict[ServoTag.LEFT_ANKLE_ROLL].setDest(150.0 * transN);
+            servoDict[ServoTag.RIGHT_ANKLE_ROLL].setDest(150.0 * transN);
+        }
+
+        public void setPos45() {
+            double transN = 135.0 / 4000.0;
+            servoDict[ServoTag.LEFT_HIP_ROLL].setDest(400.0 * transN);
+            servoDict[ServoTag.RIGHT_HIP_ROLL].setDest(250.0 * transN);
+            servoDict[ServoTag.LEFT_HIP_PITCH].setDest(1100.0 * transN);
+            servoDict[ServoTag.RIGHT_HIP_PITCH].setDest(-600.0 * transN);
+            servoDict[ServoTag.LEFT_KNEE].setDest(2200.0 * transN);
+            servoDict[ServoTag.RIGHT_KNEE].setDest(-1200.0 * transN);
+            servoDict[ServoTag.LEFT_ANKLE_PITCH].setDest(-1100.0 * transN);
+            servoDict[ServoTag.RIGHT_ANKLE_PITCH].setDest(750.0 * transN);
+            servoDict[ServoTag.LEFT_ANKLE_ROLL].setDest(450.0 * transN);
+            servoDict[ServoTag.RIGHT_ANKLE_ROLL].setDest(250.0 * transN);
+        }
+
+        public void setPos7() {
+            double transN = 135.0 / 4000.0;
+            servoDict[ServoTag.LEFT_HIP_ROLL].setDest(0 * transN);
+            servoDict[ServoTag.RIGHT_HIP_ROLL].setDest(0 * transN);
+            servoDict[ServoTag.LEFT_HIP_PITCH].setDest(900.0 * transN);
+            servoDict[ServoTag.RIGHT_HIP_PITCH].setDest(-500.0 * transN);
+            servoDict[ServoTag.LEFT_KNEE].setDest(1200.0 * transN);
+            servoDict[ServoTag.RIGHT_KNEE].setDest(-1200.0 * transN);
+            servoDict[ServoTag.LEFT_ANKLE_PITCH].setDest(-450.0 * transN);
+            servoDict[ServoTag.RIGHT_ANKLE_PITCH].setDest(900.0 * transN);
+            servoDict[ServoTag.LEFT_ANKLE_ROLL].setDest(0 * transN);
+            servoDict[ServoTag.RIGHT_ANKLE_ROLL].setDest(-100.0 * transN);
+        }
+
+        /**
          * 城さんのプログラムでは、kinect v2から骨格の角度を割り出し、 
          * public void calcServoDest(Dictionary<BoneTag, Vector3D> boneDict)
          * でservoDictの値を更新していた。
          * 2015/4/10時点ではservoDictを更新するメソッドは追加していない。
          */
 
-        //サーボ角度表記へ変換
+        //物理的角度表記からサーボ角度表記へ変換
         private Dictionary<int, int> servoToDest(Dictionary<ServoTag, ServoData> d) {
             Dictionary<int, int> ret = new Dictionary<int, int>(d.Count);
             foreach (ServoTag s in servoDict.Keys) {
@@ -159,7 +208,7 @@ namespace RobotOperation {
                     Debug.WriteLine("servo ID {0}", (int)s);
                     if (d[s].direction) {
                         ret.Add((int)s, d[s].toServoAngle(d[s].destAngle));
-                    }else {
+                    } else {
                         ret.Add((int)s, d[s].toServoAngle(-d[s].destAngle));
                     }
                 }
