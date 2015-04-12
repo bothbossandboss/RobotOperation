@@ -193,6 +193,146 @@ namespace RobotOperation {
             servoDict[ServoTag.RIGHT_ANKLE_ROLL].setDest(-100.0 * transN);
         }
 
+        public void setPos9() {
+            double transN = 135.0 / 4000.0;
+            servoDict[ServoTag.LEFT_HIP_ROLL].setDest(-100 * transN);
+            servoDict[ServoTag.RIGHT_HIP_ROLL].setDest(-50 * transN);
+            servoDict[ServoTag.LEFT_HIP_PITCH].setDest(500.0 * transN);
+            servoDict[ServoTag.RIGHT_HIP_PITCH].setDest(250.0 * transN);
+            servoDict[ServoTag.LEFT_KNEE].setDest(1200.0 * transN);
+            servoDict[ServoTag.RIGHT_KNEE].setDest(-700.0 * transN);
+            servoDict[ServoTag.LEFT_ANKLE_PITCH].setDest(-800.0 * transN);
+            servoDict[ServoTag.RIGHT_ANKLE_PITCH].setDest(900.0 * transN);
+            servoDict[ServoTag.LEFT_ANKLE_ROLL].setDest(-200 * transN);
+            servoDict[ServoTag.RIGHT_ANKLE_ROLL].setDest(-200.0 * transN);
+        }
+
+        public void setPos33() {
+            double transN = 135.0 / 4000.0;
+            servoDict[ServoTag.LEFT_HIP_ROLL].setDest(-250 * transN);
+            servoDict[ServoTag.RIGHT_HIP_ROLL].setDest(-250 * transN);
+            servoDict[ServoTag.LEFT_HIP_PITCH].setDest(600.0 * transN);
+            servoDict[ServoTag.RIGHT_HIP_PITCH].setDest(-300.0 * transN);
+            servoDict[ServoTag.LEFT_KNEE].setDest(1200.0 * transN);
+            servoDict[ServoTag.RIGHT_KNEE].setDest(-1700.0 * transN);
+            servoDict[ServoTag.LEFT_ANKLE_PITCH].setDest(-700.0 * transN);
+            servoDict[ServoTag.RIGHT_ANKLE_PITCH].setDest(1000.0 * transN);
+            servoDict[ServoTag.LEFT_ANKLE_ROLL].setDest(-300 * transN);
+            servoDict[ServoTag.RIGHT_ANKLE_ROLL].setDest(-300.0 * transN);
+        }
+
+        public void setPos0() {
+            double transN = 135.0 / 4000.0;
+            servoDict[ServoTag.LEFT_HIP_ROLL].setDest(-250 * transN);
+            servoDict[ServoTag.RIGHT_HIP_ROLL].setDest(-400 * transN);
+            servoDict[ServoTag.LEFT_HIP_PITCH].setDest(600.0 * transN);
+            servoDict[ServoTag.RIGHT_HIP_PITCH].setDest(-1100.0 * transN);
+            servoDict[ServoTag.LEFT_KNEE].setDest(1200.0 * transN);
+            servoDict[ServoTag.RIGHT_KNEE].setDest(-2200.0 * transN);
+            servoDict[ServoTag.LEFT_ANKLE_PITCH].setDest(-700.0 * transN);
+            servoDict[ServoTag.RIGHT_ANKLE_PITCH].setDest(1100.0 * transN);
+            servoDict[ServoTag.LEFT_ANKLE_ROLL].setDest(-250 * transN);
+            servoDict[ServoTag.RIGHT_ANKLE_ROLL].setDest(-450.0 * transN);
+        }
+
+        public void setPos8() {
+            double transN = 135.0 / 4000.0;
+            servoDict[ServoTag.LEFT_HIP_ROLL].setDest(0 * transN);
+            servoDict[ServoTag.RIGHT_HIP_ROLL].setDest(0 * transN);
+            servoDict[ServoTag.LEFT_HIP_PITCH].setDest(500.0 * transN);
+            servoDict[ServoTag.RIGHT_HIP_PITCH].setDest(-900.0 * transN);
+            servoDict[ServoTag.LEFT_KNEE].setDest(1200.0 * transN);
+            servoDict[ServoTag.RIGHT_KNEE].setDest(-1200.0 * transN);
+            servoDict[ServoTag.LEFT_ANKLE_PITCH].setDest(-900.0 * transN);
+            servoDict[ServoTag.RIGHT_ANKLE_PITCH].setDest(450.0 * transN);
+            servoDict[ServoTag.LEFT_ANKLE_ROLL].setDest(100 * transN);
+            servoDict[ServoTag.RIGHT_ANKLE_ROLL].setDest(0 * transN);
+        }
+
+        public void setPos22() {
+            double transN = 135.0 / 4000.0;
+            servoDict[ServoTag.LEFT_HIP_ROLL].setDest(50 * transN);
+            servoDict[ServoTag.RIGHT_HIP_ROLL].setDest(100 * transN);
+            servoDict[ServoTag.LEFT_HIP_PITCH].setDest(-250.0 * transN);
+            servoDict[ServoTag.RIGHT_HIP_PITCH].setDest(-500.0 * transN);
+            servoDict[ServoTag.LEFT_KNEE].setDest(700.0 * transN);
+            servoDict[ServoTag.RIGHT_KNEE].setDest(-1200.0 * transN);
+            servoDict[ServoTag.LEFT_ANKLE_PITCH].setDest(-900.0 * transN);
+            servoDict[ServoTag.RIGHT_ANKLE_PITCH].setDest(800.0 * transN);
+            servoDict[ServoTag.LEFT_ANKLE_ROLL].setDest(200 * transN);
+            servoDict[ServoTag.RIGHT_ANKLE_ROLL].setDest(200 * transN);
+        }
+
+        public void setPos4() {
+            double transN = 135.0 / 4000.0;
+            servoDict[ServoTag.LEFT_HIP_ROLL].setDest(250 * transN);
+            servoDict[ServoTag.RIGHT_HIP_ROLL].setDest(250 * transN);
+            servoDict[ServoTag.LEFT_HIP_PITCH].setDest(300.0 * transN);
+            servoDict[ServoTag.RIGHT_HIP_PITCH].setDest(-600.0 * transN);
+            servoDict[ServoTag.LEFT_KNEE].setDest(1700.0 * transN);
+            servoDict[ServoTag.RIGHT_KNEE].setDest(-1200.0 * transN);
+            servoDict[ServoTag.LEFT_ANKLE_PITCH].setDest(-1000.0 * transN);
+            servoDict[ServoTag.RIGHT_ANKLE_PITCH].setDest(700.0 * transN);
+            servoDict[ServoTag.LEFT_ANKLE_ROLL].setDest(300 * transN);
+            servoDict[ServoTag.RIGHT_ANKLE_ROLL].setDest(300 * transN);
+        }
+
+        public void setPos1() {
+            double transN = 135.0 / 4000.0;
+            servoDict[ServoTag.LEFT_HIP_ROLL].setDest(400 * transN);
+            servoDict[ServoTag.RIGHT_HIP_ROLL].setDest(250 * transN);
+            servoDict[ServoTag.LEFT_HIP_PITCH].setDest(1100.0 * transN);
+            servoDict[ServoTag.RIGHT_HIP_PITCH].setDest(-600.0 * transN);
+            servoDict[ServoTag.LEFT_KNEE].setDest(2200.0 * transN);
+            servoDict[ServoTag.RIGHT_KNEE].setDest(-1200.0 * transN);
+            servoDict[ServoTag.LEFT_ANKLE_PITCH].setDest(-1100.0 * transN);
+            servoDict[ServoTag.RIGHT_ANKLE_PITCH].setDest(700.0 * transN);
+            servoDict[ServoTag.LEFT_ANKLE_ROLL].setDest(450 * transN);
+            servoDict[ServoTag.RIGHT_ANKLE_ROLL].setDest(250 * transN);
+        }
+
+        public void setPos43() {
+            double transN = 135.0 / 4000.0;
+            servoDict[ServoTag.LEFT_HIP_ROLL].setDest(-250 * transN);
+            servoDict[ServoTag.RIGHT_HIP_ROLL].setDest(-250 * transN);
+            servoDict[ServoTag.LEFT_HIP_PITCH].setDest(600.0 * transN);
+            servoDict[ServoTag.RIGHT_HIP_PITCH].setDest(-900.0 * transN);
+            servoDict[ServoTag.LEFT_KNEE].setDest(1200.0 * transN);
+            servoDict[ServoTag.RIGHT_KNEE].setDest(-2100.0 * transN);
+            servoDict[ServoTag.LEFT_ANKLE_PITCH].setDest(-700.0 * transN);
+            servoDict[ServoTag.RIGHT_ANKLE_PITCH].setDest(1300.0 * transN);
+            servoDict[ServoTag.LEFT_ANKLE_ROLL].setDest(-300 * transN);
+            servoDict[ServoTag.RIGHT_ANKLE_ROLL].setDest(-300 * transN);
+        }
+
+        public void setPos44() {
+            double transN = 135.0 / 4000.0;
+            servoDict[ServoTag.LEFT_HIP_ROLL].setDest(250 * transN);
+            servoDict[ServoTag.RIGHT_HIP_ROLL].setDest(250 * transN);
+            servoDict[ServoTag.LEFT_HIP_PITCH].setDest(900.0 * transN);
+            servoDict[ServoTag.RIGHT_HIP_PITCH].setDest(-600.0 * transN);
+            servoDict[ServoTag.LEFT_KNEE].setDest(2100.0 * transN);
+            servoDict[ServoTag.RIGHT_KNEE].setDest(-1200.0 * transN);
+            servoDict[ServoTag.LEFT_ANKLE_PITCH].setDest(-1300.0 * transN);
+            servoDict[ServoTag.RIGHT_ANKLE_PITCH].setDest(700.0 * transN);
+            servoDict[ServoTag.LEFT_ANKLE_ROLL].setDest(300 * transN);
+            servoDict[ServoTag.RIGHT_ANKLE_ROLL].setDest(300 * transN);
+        }
+
+        public void setPosFin() {
+            double transN = 135.0 / 4000.0;
+            servoDict[ServoTag.LEFT_HIP_ROLL].setDest(0 * transN);
+            servoDict[ServoTag.RIGHT_HIP_ROLL].setDest(0 * transN);
+            servoDict[ServoTag.LEFT_HIP_PITCH].setDest(500.0 * transN);
+            servoDict[ServoTag.RIGHT_HIP_PITCH].setDest(-500.0 * transN);
+            servoDict[ServoTag.LEFT_KNEE].setDest(1000.0 * transN);
+            servoDict[ServoTag.RIGHT_KNEE].setDest(-1000.0 * transN);
+            servoDict[ServoTag.LEFT_ANKLE_PITCH].setDest(-600.0 * transN);
+            servoDict[ServoTag.RIGHT_ANKLE_PITCH].setDest(600.0 * transN);
+            servoDict[ServoTag.LEFT_ANKLE_ROLL].setDest(0 * transN);
+            servoDict[ServoTag.RIGHT_ANKLE_ROLL].setDest(0 * transN);
+        }
+
         /**
          * 城さんのプログラムでは、kinect v2から骨格の角度を割り出し、 
          * public void calcServoDest(Dictionary<BoneTag, Vector3D> boneDict)
