@@ -149,8 +149,11 @@ namespace RobotOperation {
 
         /**
          * Heart to Heart のサンプルモーションの微小歩行の数値をべた書き。
+         * フレーム周期は15msとする。(ロボットの接続が数値確認に必要だったので正しいとは限らない。)
+         * 前のポジションから設定したポジションへの移動には、フレーム数*フレーム周期の時間がかかる。
          */
         //Heart to Heart の数値を物理的角度に変換して入力する。
+        //フレーム数20
         public void setPos13() {
             double transN = 135.0 / 4000.0;
             servoDict[ServoTag.LEFT_HIP_ROLL].setDest(150.0 * transN);
@@ -165,6 +168,7 @@ namespace RobotOperation {
             servoDict[ServoTag.RIGHT_ANKLE_ROLL].setDest(150.0 * transN);
         }
 
+        //フレーム数12
         public void setPos45() {
             double transN = 135.0 / 4000.0;
             servoDict[ServoTag.LEFT_HIP_ROLL].setDest(400.0 * transN);
@@ -179,6 +183,7 @@ namespace RobotOperation {
             servoDict[ServoTag.RIGHT_ANKLE_ROLL].setDest(250.0 * transN);
         }
 
+        //フレーム数17
         public void setPos7() {
             double transN = 135.0 / 4000.0;
             servoDict[ServoTag.LEFT_HIP_ROLL].setDest(0 * transN);
@@ -193,6 +198,7 @@ namespace RobotOperation {
             servoDict[ServoTag.RIGHT_ANKLE_ROLL].setDest(-100.0 * transN);
         }
 
+        //フレーム数
         public void setPos9() {
             double transN = 135.0 / 4000.0;
             servoDict[ServoTag.LEFT_HIP_ROLL].setDest(-100 * transN);
@@ -207,6 +213,7 @@ namespace RobotOperation {
             servoDict[ServoTag.RIGHT_ANKLE_ROLL].setDest(-200.0 * transN);
         }
 
+        //フレーム数20
         public void setPos33() {
             double transN = 135.0 / 4000.0;
             servoDict[ServoTag.LEFT_HIP_ROLL].setDest(-250 * transN);
@@ -221,6 +228,7 @@ namespace RobotOperation {
             servoDict[ServoTag.RIGHT_ANKLE_ROLL].setDest(-300.0 * transN);
         }
 
+        //フレーム数12
         public void setPos0() {
             double transN = 135.0 / 4000.0;
             servoDict[ServoTag.LEFT_HIP_ROLL].setDest(-250 * transN);
@@ -235,6 +243,7 @@ namespace RobotOperation {
             servoDict[ServoTag.RIGHT_ANKLE_ROLL].setDest(-450.0 * transN);
         }
 
+        //フレーム数17
         public void setPos8() {
             double transN = 135.0 / 4000.0;
             servoDict[ServoTag.LEFT_HIP_ROLL].setDest(0 * transN);
@@ -249,6 +258,7 @@ namespace RobotOperation {
             servoDict[ServoTag.RIGHT_ANKLE_ROLL].setDest(0 * transN);
         }
 
+        //フレーム数20
         public void setPos22() {
             double transN = 135.0 / 4000.0;
             servoDict[ServoTag.LEFT_HIP_ROLL].setDest(50 * transN);
@@ -263,6 +273,7 @@ namespace RobotOperation {
             servoDict[ServoTag.RIGHT_ANKLE_ROLL].setDest(200 * transN);
         }
 
+        //フレーム数20
         public void setPos4() {
             double transN = 135.0 / 4000.0;
             servoDict[ServoTag.LEFT_HIP_ROLL].setDest(250 * transN);
@@ -277,6 +288,7 @@ namespace RobotOperation {
             servoDict[ServoTag.RIGHT_ANKLE_ROLL].setDest(300 * transN);
         }
 
+        //フレーム数12
         public void setPos1() {
             double transN = 135.0 / 4000.0;
             servoDict[ServoTag.LEFT_HIP_ROLL].setDest(400 * transN);
@@ -291,6 +303,7 @@ namespace RobotOperation {
             servoDict[ServoTag.RIGHT_ANKLE_ROLL].setDest(250 * transN);
         }
 
+        //フレーム数15
         public void setPos43() {
             double transN = 135.0 / 4000.0;
             servoDict[ServoTag.LEFT_HIP_ROLL].setDest(-250 * transN);
@@ -305,6 +318,7 @@ namespace RobotOperation {
             servoDict[ServoTag.RIGHT_ANKLE_ROLL].setDest(-300 * transN);
         }
 
+        //フレーム数15
         public void setPos44() {
             double transN = 135.0 / 4000.0;
             servoDict[ServoTag.LEFT_HIP_ROLL].setDest(250 * transN);
@@ -319,6 +333,7 @@ namespace RobotOperation {
             servoDict[ServoTag.RIGHT_ANKLE_ROLL].setDest(300 * transN);
         }
 
+        //フレーム数30
         public void setPosFin() {
             double transN = 135.0 / 4000.0;
             servoDict[ServoTag.LEFT_HIP_ROLL].setDest(0 * transN);
