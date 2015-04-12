@@ -154,18 +154,19 @@ namespace RobotOperation {
          */
         //Heart to Heart の数値を物理的角度に変換して入力する。
         //フレーム数20
+        //ニュートラル -> Pos13
         public void setPos13() {
             double transN = 135.0 / 4000.0;
-            servoDict[ServoTag.LEFT_HIP_ROLL].setDest(150.0 * transN);
-            servoDict[ServoTag.RIGHT_HIP_ROLL].setDest(150.0 * transN);
-            servoDict[ServoTag.LEFT_HIP_PITCH].setDest(500.0 * transN);
-            servoDict[ServoTag.RIGHT_HIP_PITCH].setDest(-500.0 * transN);
-            servoDict[ServoTag.LEFT_KNEE].setDest(1000.0 * transN);
-            servoDict[ServoTag.RIGHT_KNEE].setDest(-1000.0 * transN);
-            servoDict[ServoTag.LEFT_ANKLE_PITCH].setDest(-650.0 * transN);
-            servoDict[ServoTag.RIGHT_ANKLE_PITCH].setDest(650.0 * transN);
-            servoDict[ServoTag.LEFT_ANKLE_ROLL].setDest(150.0 * transN);
-            servoDict[ServoTag.RIGHT_ANKLE_ROLL].setDest(150.0 * transN);
+                servoDict[ServoTag.LEFT_HIP_ROLL].setDest(150.0 * transN);
+                servoDict[ServoTag.RIGHT_HIP_ROLL].setDest(150.0 * transN);
+                servoDict[ServoTag.LEFT_HIP_PITCH].setDest(500.0 * transN);
+                servoDict[ServoTag.RIGHT_HIP_PITCH].setDest(-500.0 * transN);
+                servoDict[ServoTag.LEFT_KNEE].setDest(1000.0 * transN);
+                servoDict[ServoTag.RIGHT_KNEE].setDest(-1000.0 * transN);
+                servoDict[ServoTag.LEFT_ANKLE_PITCH].setDest(-650.0 * transN);
+                servoDict[ServoTag.RIGHT_ANKLE_PITCH].setDest(650.0 * transN);
+                servoDict[ServoTag.LEFT_ANKLE_ROLL].setDest(150.0 * transN);
+                servoDict[ServoTag.RIGHT_ANKLE_ROLL].setDest(150.0 * transN);
         }
 
         //フレーム数12
@@ -346,6 +347,39 @@ namespace RobotOperation {
             servoDict[ServoTag.RIGHT_ANKLE_PITCH].setDest(600.0 * transN);
             servoDict[ServoTag.LEFT_ANKLE_ROLL].setDest(0 * transN);
             servoDict[ServoTag.RIGHT_ANKLE_ROLL].setDest(0 * transN);
+        }
+
+        public void setLowerBody(Dictionary<ServoTag, double> prePos, Dictionary<ServoTag, double> nextPos, double now) {
+            double transN = 135.0 / 4000.0;
+            double theta = (prePos[ServoTag.LEFT_HIP_ROLL] + (nextPos[ServoTag.LEFT_HIP_ROLL] - prePos[ServoTag.LEFT_HIP_ROLL]) * now) * transN;
+            servoDict[ServoTag.LEFT_HIP_ROLL].setDest(theta);
+            
+            theta = (prePos[ServoTag.RIGHT_HIP_ROLL] + (nextPos[ServoTag.RIGHT_HIP_ROLL] -prePos[ServoTag.RIGHT_HIP_ROLL]) * now) * transN;
+            servoDict[ServoTag.RIGHT_HIP_ROLL].setDest(theta);
+            
+            theta = (prePos[ServoTag.LEFT_HIP_PITCH] +( nextPos[ServoTag.LEFT_HIP_PITCH] - prePos[ServoTag.LEFT_HIP_PITCH] ) * now) * transN;
+            servoDict[ServoTag.LEFT_HIP_PITCH].setDest(theta);
+            
+            theta = (prePos[ServoTag.RIGHT_HIP_PITCH] + (nextPos[ServoTag.RIGHT_HIP_PITCH] -  prePos[ServoTag.RIGHT_HIP_PITCH]) * now)  * transN;
+            servoDict[ServoTag.RIGHT_HIP_PITCH].setDest(theta);
+            
+            theta = (prePos[ServoTag.LEFT_KNEE] + (nextPos[ServoTag.LEFT_KNEE] - prePos[ServoTag.LEFT_KNEE]) * now) * transN;
+            servoDict[ServoTag.LEFT_KNEE].setDest(theta);
+            
+            theta = (prePos[ServoTag.RIGHT_KNEE] + (nextPos[ServoTag.RIGHT_KNEE] - prePos[ServoTag.RIGHT_KNEE]) * now) * transN;
+            servoDict[ServoTag.RIGHT_KNEE].setDest(theta);
+            
+            theta = (prePos[ServoTag.LEFT_ANKLE_PITCH] + (nextPos[ServoTag.LEFT_ANKLE_PITCH] - prePos[ServoTag.LEFT_ANKLE_PITCH]) * now) * transN;
+            servoDict[ServoTag.LEFT_ANKLE_PITCH].setDest(theta);
+            
+            theta = (prePos[ServoTag.RIGHT_ANKLE_PITCH] + (nextPos[ServoTag.RIGHT_ANKLE_PITCH] - prePos[ServoTag.RIGHT_ANKLE_PITCH]) * now) * transN;
+            servoDict[ServoTag.RIGHT_ANKLE_PITCH].setDest(theta);
+            
+            theta = (prePos[ServoTag.LEFT_ANKLE_ROLL] + (nextPos[ServoTag.LEFT_ANKLE_ROLL] - prePos[ServoTag.LEFT_ANKLE_ROLL]) * now) * transN;
+            servoDict[ServoTag.LEFT_ANKLE_ROLL].setDest(theta);
+            
+            theta = (prePos[ServoTag.RIGHT_ANKLE_ROLL] + (nextPos[ServoTag.RIGHT_ANKLE_ROLL] - prePos[ServoTag.RIGHT_ANKLE_ROLL]) * now) * transN;
+            servoDict[ServoTag.RIGHT_ANKLE_ROLL].setDest(theta);
         }
 
         /**
