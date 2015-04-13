@@ -349,7 +349,7 @@ namespace RobotOperation {
             servoDict[ServoTag.RIGHT_ANKLE_ROLL].setDest(0 * transN);
         }
 
-        public void setLowerBody(Dictionary<ServoTag, double> prePos, Dictionary<ServoTag, double> nextPos, double now) {
+        public void setLowerBody(ref Dictionary<ServoTag, double> prePos, ref Dictionary<ServoTag, double> nextPos, double now) {
             double transN = 135.0 / 4000.0;
             double theta = (prePos[ServoTag.LEFT_HIP_ROLL] + (nextPos[ServoTag.LEFT_HIP_ROLL] - prePos[ServoTag.LEFT_HIP_ROLL]) * now) * transN;
             servoDict[ServoTag.LEFT_HIP_ROLL].setDest(theta);
