@@ -23,6 +23,7 @@ namespace RobotOperation {
             bool flag = true;
             //15msごとに指令をロボットに送る。
             while(flag) {
+                Console.WriteLine(nowPos);
                 //現在のポジションと次のポジションを設定
                 switch (nowPos) {
                     case "posFirst":
@@ -129,13 +130,9 @@ namespace RobotOperation {
                     servoManager.generateCommand();
                     System.Threading.Thread.Sleep(15);
                 }
-
-                break;
+                Console.WriteLine(nowPos);
             }
-
-
         }
-
     }
 }
 /*
