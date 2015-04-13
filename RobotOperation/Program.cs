@@ -12,9 +12,10 @@ namespace RobotOperation {
         [STAThread]
         static void Main() {
             Console.WriteLine("Hello World using C#!");
-
-            SerialPortManager serialPortManager = new SerialPortManager("COM5"); //ロボットの接続場所に依存
-            serialPortManager.Open();
+            Application.Run(new Form1());
+//            UserControl1 userControl1 = new UserControl1();
+//            SerialPortManager serialPortManager = new SerialPortManager("COM5"); //ロボットの接続場所に依存
+ //           serialPortManager.Open();
 
             SmallWalk smallWalk = new SmallWalk();
             ServoManager servoManager = new ServoManager();
@@ -131,7 +132,7 @@ namespace RobotOperation {
                 for (int i = 1; i <= frame && flag; i++) {
                     servoManager.setLowerBody(ref nowD, ref nextD, (double)i / (double)frame);
                     //コマンド送信
-                    serialPortManager.sendMessage(servoManager.generateCommand());
+                    //serialPortManager.sendMessage(servoManager.generateCommand());
                     System.Threading.Thread.Sleep(15);
                 }
                 Console.WriteLine(nowPos);
