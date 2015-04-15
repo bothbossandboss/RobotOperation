@@ -34,7 +34,7 @@ namespace RobotOperation {
             int frame = smallWalk.frameDic["pos13"];
             int count = 6;
             bool flag = true;
-            //20msごとに指令をロボットに送る。
+            //15msごとに指令をロボットに送る。
             while (flag) {
                 Console.WriteLine(nowPos);
                 //現在のポジションと次のポジションを設定
@@ -142,7 +142,7 @@ namespace RobotOperation {
                     servoManager.setLowerBody(ref nowD, ref nextD, (double)i / (double)frame);
                     //コマンド送信
                     //serialPortManager.sendMessage(servoManager.generateCommand());
-                    System.Threading.Thread.Sleep(20);
+                    System.Threading.Thread.Sleep(15);
                 }
                 Console.WriteLine(nowPos);
             }
