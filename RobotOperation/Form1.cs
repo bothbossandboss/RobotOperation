@@ -8,22 +8,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace RobotOperation
-{
-    public partial class Form1 : Form
-    {
-        public Form1()
-        {
+namespace RobotOperation {
+    public partial class Form1 : Form {
+        public Form1() {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
+        private void connectButtonClicked(object sender, EventArgs e) {
+            Console.WriteLine("connect");
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
+        private void startButtonClicked(object sender, EventArgs e) {
+            Console.WriteLine("start");
+        }
+
+        private void Form1_Load(object sender, EventArgs e) {
 
         }
     }
