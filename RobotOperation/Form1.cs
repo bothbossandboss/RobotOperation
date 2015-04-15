@@ -21,13 +21,19 @@ namespace RobotOperation {
             servoManager = new ServoManager();
         }
 
+        private void Form1_Load(object sender, EventArgs e) {
+            //kinectの初期化とか書くか。
+        }
+
         private void connectButtonClicked(object sender, EventArgs e) {
             Console.WriteLine("connect");
-            //serialPortManager.Open();
+            serialMessage.Text = "connecting...";
+            serialMessage.Text = serialPortManager.Open();
         }
 
         private void startButtonClicked(object sender, EventArgs e) {
             Console.WriteLine("start");
+            serialMessage.Text = "start!";
             string nowPos = "posFirst";
             Dictionary<ServoTag, double> nowD = smallWalk.posDic["posFirst"];
             Dictionary<ServoTag, double> nextD = smallWalk.posDic["pos13"];
@@ -146,10 +152,7 @@ namespace RobotOperation {
                 }
                 Console.WriteLine(nowPos);
             }
-        }
-
-        private void Form1_Load(object sender, EventArgs e) {
-            //kinectの初期化とか書くか。
+            serialMessage.Text = "finish!";
         }
     }
 }

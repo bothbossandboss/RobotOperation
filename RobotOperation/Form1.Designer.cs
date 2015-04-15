@@ -30,7 +30,7 @@
         {
             this.connectButton = new System.Windows.Forms.Button();
             this.startButton = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.serialMessage = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // connectButton
@@ -53,21 +53,21 @@
             this.startButton.UseVisualStyleBackColor = true;
             this.startButton.Click += new System.EventHandler(this.startButtonClicked);
             // 
-            // label1
+            // serialMessage
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 12);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "label1";
+            this.serialMessage.AutoSize = true;
+            this.serialMessage.Location = new System.Drawing.Point(12, 9);
+            this.serialMessage.Name = "serialMessage";
+            this.serialMessage.Size = new System.Drawing.Size(35, 12);
+            this.serialMessage.TabIndex = 2;
+            this.serialMessage.Text = "no message";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 262);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.serialMessage);
             this.Controls.Add(this.startButton);
             this.Controls.Add(this.connectButton);
             this.Name = "Form1";
@@ -82,6 +82,6 @@
 
         private System.Windows.Forms.Button connectButton;
         private System.Windows.Forms.Button startButton;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label serialMessage;
     }
 }
