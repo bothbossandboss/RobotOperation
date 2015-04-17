@@ -16,26 +16,26 @@ namespace RobotOperation {
      */
     public enum ServoTag {
         NECK = 0, //首(壊れている?)
-        WAIST, //腰(回転方向不明)
-        LEFT_SHOULDER_PITCH, //左肩ピッチ方向回転
-        RIGHT_SHOULDER_PITCH, //右肩ピッチ方向回転
-        LEFT_SHOULDER_ROLL, //左肩ロール回転(外側に開く)
-        RIGHT_SHOULDER_ROLL, //右肩ロール回転(内側に閉じる(鏡面対称ではない))
-        LEFT_SHOULDER_YAW, //左肩ヨー方向回転
-        RIGHT_SHOULDER_YAW, //右肩ヨー方向回転
-        LEFT_ELBOW, //左肘
-        RIGHT_ELBOW, //右肘
-        LEFT_HIP_YAW, //左股間節ヨー方向回転
+        WAIST, //腰(回転方向不明)(1)
+        LEFT_SHOULDER_PITCH, //左肩ピッチ方向回転(2)
+        RIGHT_SHOULDER_PITCH, //右肩ピッチ方向回転(3)
+        LEFT_SHOULDER_ROLL, //左肩ロール回転(外側に開く)(4)
+        RIGHT_SHOULDER_ROLL, //右肩ロール回転(内側に閉じる(鏡面対称ではない))(5)
+        LEFT_SHOULDER_YAW, //左肩ヨー方向回転(6)
+        RIGHT_SHOULDER_YAW, //右肩ヨー方向回転(7)
+        LEFT_ELBOW, //左肘(8)
+        RIGHT_ELBOW, //右肘(9)
+        LEFT_HIP_YAW, //左股間節ヨー方向回転(10)
         RIGHT_HIP_YAW, //右股間節ヨー方向回転
         LEFT_HIP_ROLL, //左股関節ロール方向回転
         RIGHT_HIP_ROLL, //右股関節ロール方向回転
         LEFT_HIP_PITCH, //左股関節ピッチ方向回転
         RIGHT_HIP_PITCH, //右股関節ピッチ方向回転
-        LEFT_KNEE, //左膝
-        RIGHT_KNEE, //右膝
+        LEFT_KNEE, //左膝(16)
+        RIGHT_KNEE, //右膝(17)
         LEFT_ANKLE_PITCH, //左足首ピッチ方向回転
         RIGHT_ANKLE_PITCH, //右足首ピッチ方向回転
-        LEFT_ANKLE_ROLL, //左足首ロール方向回転
+        LEFT_ANKLE_ROLL, //左足首ロール方向回転(20)
         RIGHT_ANKLE_ROLL, //右足首ロール方向回転
         NUM_OF_SERVO
     }
@@ -138,8 +138,8 @@ namespace RobotOperation {
             servoDict.Add(ServoTag.RIGHT_ANKLE_ROLL, new ServoData(true, 0, 7100, 7500));
             servoDict.Add(ServoTag.LEFT_HIP_PITCH, new ServoData(false, 0));
             servoDict.Add(ServoTag.RIGHT_HIP_PITCH, new ServoData(true, 0));
-            servoDict.Add(ServoTag.LEFT_HIP_ROLL, new ServoData(true, 0, 7500, 7900));
-            servoDict.Add(ServoTag.RIGHT_HIP_ROLL, new ServoData(true, 0, 7100, 7500));
+            servoDict.Add(ServoTag.LEFT_HIP_ROLL, new ServoData(true, 0, 7500, 8000));//上限更新
+            servoDict.Add(ServoTag.RIGHT_HIP_ROLL, new ServoData(true, 0, 7100, 8000));//上限更新
             servoDict.Add(ServoTag.NECK, new ServoData(true, 0, 6800, 8200));
         }
 
@@ -157,16 +157,16 @@ namespace RobotOperation {
         //ニュートラル -> Pos13
         public void setPos13() {
             double transN = 135.0 / 4000.0;
-                servoDict[ServoTag.LEFT_HIP_ROLL].setDest(150.0 * transN);
-                servoDict[ServoTag.RIGHT_HIP_ROLL].setDest(150.0 * transN);
-                servoDict[ServoTag.LEFT_HIP_PITCH].setDest(500.0 * transN);
-                servoDict[ServoTag.RIGHT_HIP_PITCH].setDest(-500.0 * transN);
-                servoDict[ServoTag.LEFT_KNEE].setDest(1000.0 * transN);
-                servoDict[ServoTag.RIGHT_KNEE].setDest(-1000.0 * transN);
-                servoDict[ServoTag.LEFT_ANKLE_PITCH].setDest(-650.0 * transN);
-                servoDict[ServoTag.RIGHT_ANKLE_PITCH].setDest(650.0 * transN);
-                servoDict[ServoTag.LEFT_ANKLE_ROLL].setDest(150.0 * transN);
-                servoDict[ServoTag.RIGHT_ANKLE_ROLL].setDest(150.0 * transN);
+                servoDict[ServoTag.LEFT_HIP_ROLL].setDest(150.0 * transN);//(12)
+                servoDict[ServoTag.RIGHT_HIP_ROLL].setDest(150.0 * transN);//(13)
+                servoDict[ServoTag.LEFT_HIP_PITCH].setDest(500.0 * transN);//(14)
+                servoDict[ServoTag.RIGHT_HIP_PITCH].setDest(-500.0 * transN);//(15)
+                servoDict[ServoTag.LEFT_KNEE].setDest(1000.0 * transN);//(16)
+                servoDict[ServoTag.RIGHT_KNEE].setDest(-1000.0 * transN);//(17)
+                servoDict[ServoTag.LEFT_ANKLE_PITCH].setDest(-650.0 * transN);//(18)
+                servoDict[ServoTag.RIGHT_ANKLE_PITCH].setDest(650.0 * transN);//(19)
+                servoDict[ServoTag.LEFT_ANKLE_ROLL].setDest(150.0 * transN);//(20)
+                servoDict[ServoTag.RIGHT_ANKLE_ROLL].setDest(150.0 * transN);//(21)
         }
 
         //フレーム数12
@@ -395,11 +395,11 @@ namespace RobotOperation {
             foreach (ServoTag s in servoDict.Keys) {
                 if (d[s].changeFlag) {
                     Debug.WriteLine("servo ID {0}", (int)s);
-                    if (d[s].direction) {
+//                    if (d[s].direction) {
                         ret.Add((int)s, d[s].toServoAngle(d[s].destAngle));
-                    } else {
-                        ret.Add((int)s, d[s].toServoAngle(-d[s].destAngle));
-                    }
+//                   } else {
+    //                    ret.Add((int)s, d[s].toServoAngle(-d[s].destAngle));
+       //             }
                 }
             }
             return ret;

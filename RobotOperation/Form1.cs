@@ -16,7 +16,7 @@ namespace RobotOperation {
 
         public Form1() {
             InitializeComponent();
-            serialPortManager = new SerialPortManager("COM5");
+            serialPortManager = new SerialPortManager("COM3");
             smallWalk = new SmallWalk();
             servoManager = new ServoManager();
         }
@@ -41,6 +41,7 @@ namespace RobotOperation {
             int count = 6;
             bool flag = true;
             //15msごとに指令をロボットに送る。
+            /*
             while (flag) {
                 Console.WriteLine(nowPos);
                 //現在のポジションと次のポジションを設定
@@ -152,6 +153,9 @@ namespace RobotOperation {
                 }
                 Console.WriteLine(nowPos);
             }
+            */
+            servoManager.setPos13();
+            serialPortManager.sendMessage(servoManager.generateCommand());           
             serialMessage.Text = "finish!";
         }
     }
