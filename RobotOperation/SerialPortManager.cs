@@ -32,8 +32,9 @@ namespace RobotOperation {
 
         public void sendMessage(byte[] msg) {
             if (MyPort.IsOpen) {
-                //rxは受信用変数。マニュアルによると5バイトのデータらしい。
-                byte[] rx = new byte[5];
+                //rxは受信用変数。マニュアルによると4バイトのデータらしい。
+                //RCB-4コマンドリファレンスP.18,19を参照。
+                byte[] rx = new byte[4];
                 //ref は参照渡しを意味する。
                 Command.Synchronize(MyPort, msg, ref rx);
             }
