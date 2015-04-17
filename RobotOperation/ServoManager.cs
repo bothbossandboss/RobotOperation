@@ -121,6 +121,7 @@ namespace RobotOperation {
         public ServoManager() {
             servoDict = new Dictionary<ServoTag, ServoData>();
             //ServoDataの第二引数はトリム値。
+            servoDict.Add(ServoTag.NECK, new ServoData(true, 0, 6800, 8200));
             servoDict.Add(ServoTag.WAIST, new ServoData(true, 0, 5500, 9500));
             servoDict.Add(ServoTag.LEFT_SHOULDER_PITCH, new ServoData(true, -1350));
             servoDict.Add(ServoTag.RIGHT_SHOULDER_PITCH, new ServoData(false, 900));
@@ -130,17 +131,18 @@ namespace RobotOperation {
             servoDict.Add(ServoTag.RIGHT_SHOULDER_YAW, new ServoData(true, 0));
             servoDict.Add(ServoTag.LEFT_ELBOW, new ServoData(false, 2650, 3800, 8400));
             servoDict.Add(ServoTag.RIGHT_ELBOW, new ServoData(true, -2650, 6600, 11200));
+            //LEFT_HIP_YAWは使わない。
+            //RIGHT_HIP_YAWは使わない。
+            servoDict.Add(ServoTag.LEFT_HIP_ROLL, new ServoData(true, 0, 7500, 8000));//上限更新
+            servoDict.Add(ServoTag.RIGHT_HIP_ROLL, new ServoData(true, 0, 7100, 8000));//上限更新
+            servoDict.Add(ServoTag.LEFT_HIP_PITCH, new ServoData(false, 0));
+            servoDict.Add(ServoTag.RIGHT_HIP_PITCH, new ServoData(true, 0));
             servoDict.Add(ServoTag.LEFT_KNEE, new ServoData(true, 0));
             servoDict.Add(ServoTag.RIGHT_KNEE, new ServoData(false, 0));
             servoDict.Add(ServoTag.LEFT_ANKLE_PITCH, new ServoData(true, 0));
             servoDict.Add(ServoTag.RIGHT_ANKLE_PITCH, new ServoData(false, 0));
             servoDict.Add(ServoTag.LEFT_ANKLE_ROLL, new ServoData(true, 0, 7500, 7900));
             servoDict.Add(ServoTag.RIGHT_ANKLE_ROLL, new ServoData(true, 0, 7100, 7500));
-            servoDict.Add(ServoTag.LEFT_HIP_PITCH, new ServoData(false, 0));
-            servoDict.Add(ServoTag.RIGHT_HIP_PITCH, new ServoData(true, 0));
-            servoDict.Add(ServoTag.LEFT_HIP_ROLL, new ServoData(true, 0, 7500, 8000));//上限更新
-            servoDict.Add(ServoTag.RIGHT_HIP_ROLL, new ServoData(true, 0, 7100, 8000));//上限更新
-            servoDict.Add(ServoTag.NECK, new ServoData(true, 0, 6800, 8200));
         }
 
         public Dictionary<ServoTag, ServoData> getServo() {

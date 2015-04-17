@@ -31,6 +31,7 @@ namespace RobotOperation {
         }
 
         public void sendMessage(byte[] msg) {
+            Console.WriteLine(BitConverter.ToString(msg));
             if (MyPort.IsOpen) {
                 //rxは受信用変数。マニュアルによると4バイトのデータらしい。
                 //RCB-4コマンドリファレンスP.18,19を参照。

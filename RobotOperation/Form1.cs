@@ -41,7 +41,6 @@ namespace RobotOperation {
             int count = 6;
             bool flag = true;
             //15msごとに指令をロボットに送る。
-            /*
             while (flag) {
                 Console.WriteLine(nowPos);
                 //現在のポジションと次のポジションを設定
@@ -148,14 +147,11 @@ namespace RobotOperation {
                 for (int i = 1; i <= frame && flag; i++) {
                     servoManager.setLowerBody(ref nowD, ref nextD, (double)i / (double)frame);
                     //コマンド送信
-                    //serialPortManager.sendMessage(servoManager.generateCommand());
+                    serialPortManager.sendMessage(servoManager.generateCommand());
                     System.Threading.Thread.Sleep(15);
                 }
                 Console.WriteLine(nowPos);
             }
-            */
-            servoManager.setPos13();
-            serialPortManager.sendMessage(servoManager.generateCommand());           
             serialMessage.Text = "finish!";
         }
     }
