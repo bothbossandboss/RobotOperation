@@ -147,7 +147,7 @@ namespace RobotOperation {
                 for (int i = 1; i <= frame && flag; i++) {
                     servoManager.setLowerBody(ref nowD, ref nextD, (double)i / (double)frame);
                     //コマンド送信
-                    System.Threading.Thread.Sleep(100);
+                    System.Threading.Thread.Sleep(80);
                     serialPortManager.sendMessage(servoManager.generateCommand());
                 }
                 Console.WriteLine(nowPos);
