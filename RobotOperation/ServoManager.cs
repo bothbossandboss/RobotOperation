@@ -133,16 +133,16 @@ namespace RobotOperation {
             servoDict.Add(ServoTag.RIGHT_ELBOW, new ServoData(true, -2650, 6600, 11200));
             //LEFT_HIP_YAWは使わない。
             //RIGHT_HIP_YAWは使わない。
-            servoDict.Add(ServoTag.LEFT_HIP_ROLL, new ServoData(true, 0, 7500, 8000));//上限更新
-            servoDict.Add(ServoTag.RIGHT_HIP_ROLL, new ServoData(true, 0, 7100, 8000));//上限更新
+            servoDict.Add(ServoTag.LEFT_HIP_ROLL, new ServoData(true, 30, 7100, 8000));//上限更新
+            servoDict.Add(ServoTag.RIGHT_HIP_ROLL, new ServoData(true, -30, 7100, 8000));//上限更新
             servoDict.Add(ServoTag.LEFT_HIP_PITCH, new ServoData(false, 0));
             servoDict.Add(ServoTag.RIGHT_HIP_PITCH, new ServoData(true, 0));
             servoDict.Add(ServoTag.LEFT_KNEE, new ServoData(true, 0));
             servoDict.Add(ServoTag.RIGHT_KNEE, new ServoData(false, 0));
             servoDict.Add(ServoTag.LEFT_ANKLE_PITCH, new ServoData(true, 0));
             servoDict.Add(ServoTag.RIGHT_ANKLE_PITCH, new ServoData(false, 0));
-            servoDict.Add(ServoTag.LEFT_ANKLE_ROLL, new ServoData(true, 0, 7500, 7900));
-            servoDict.Add(ServoTag.RIGHT_ANKLE_ROLL, new ServoData(true, 0, 7100, 7500));
+            servoDict.Add(ServoTag.LEFT_ANKLE_ROLL, new ServoData(true, 20, 7100, 8000));
+            servoDict.Add(ServoTag.RIGHT_ANKLE_ROLL, new ServoData(true, -20, 7100, 8000));
         }
 
         public Dictionary<ServoTag, ServoData> getServo() {

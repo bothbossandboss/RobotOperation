@@ -210,7 +210,7 @@ namespace RobotOperation {
             posDic.Add("posFin", posFin);
 
             frameDic = new Dictionary<string, int>();
-            frameDic.Add("pos13", 20);
+/*            frameDic.Add("pos13", 20);
             frameDic.Add("pos45", 12);
             frameDic.Add("pos7", 17);
             frameDic.Add("pos9", 20);
@@ -223,6 +223,20 @@ namespace RobotOperation {
             frameDic.Add("pos43", 15);
             frameDic.Add("pos44", 15);
             frameDic.Add("posFin", 30);
+ */
+            frameDic.Add("pos13", 2);
+            frameDic.Add("pos45", 2);
+            frameDic.Add("pos7", 2);
+            frameDic.Add("pos9", 2);
+            frameDic.Add("pos33", 2);
+            frameDic.Add("pos0", 2);
+            frameDic.Add("pos8", 2);
+            frameDic.Add("pos22", 2);
+            frameDic.Add("pos4", 2);
+            frameDic.Add("pos1", 2);
+            frameDic.Add("pos43", 2);
+            frameDic.Add("pos44", 2);
+            frameDic.Add("posFin", 2);
         }
     }
 }
